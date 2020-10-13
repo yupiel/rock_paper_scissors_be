@@ -1,15 +1,18 @@
 package rock_paper_scissors_be;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import rock_paper_scissors_be.game_list.GameManager;
+import rock_paper_scissors_be.web.WebServer;
 
-    public static void main(String[] args) {
-        RockPaperScissors RockPaperScissors = new RockPaperScissors();
+public class Main {
+    public static void main(String[] args) throws Exception {
+        RockPaperScissors rockPaperScissors = new RockPaperScissors();
+        GameManager gameManager = new GameManager();
 
+        new WebServer(rockPaperScissors, gameManager).startServer();
+
+        /*
         System.out.println("Write One of the following:\nRock\nPaper\nScissors\n");
         Scanner scanner = new Scanner(System.in);
         String consoleInput = scanner.next();
@@ -32,6 +35,6 @@ public class App {
 
             default:
                 System.out.println("There was an Error");
-        }
+        }*/
     }
 }
